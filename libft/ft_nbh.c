@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_nbh.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 16:24:19 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/11 10:21:59 by cdutel-l         ###   ########.fr       */
+/*   Created: 2021/12/13 12:29:05 by cdutel-l          #+#    #+#             */
+/*   Updated: 2022/05/11 11:16:57 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "../libft/libft.h"
+int	ft_nbh(unsigned int n)
+{
+	char		*s;
+	char		res[9];
+	int			i;
 
-#endif
+	i = 0;
+	s = "0123456789abcdef";
+	while (n >= 16)
+	{
+		res[i] = s[n % 16];
+		n = n / 16;
+		i++;
+	}
+	res[i] = s[n % 16];
+	i++;
+	res[i] = '\0';
+	return (ft_putstr_mod(res));
+}

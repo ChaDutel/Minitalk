@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_unsignedputnbr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 16:24:19 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/11 10:21:59 by cdutel-l         ###   ########.fr       */
+/*   Created: 2021/12/13 12:28:29 by cdutel-l          #+#    #+#             */
+/*   Updated: 2022/05/11 11:18:08 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "../libft/libft.h"
-
-#endif
+void	ft_unsignedputnbr(unsigned int n, int *i)
+{
+	if (n < 0)
+	{
+		(*i)++;
+		ft_putchar('-');
+		n *= (-1);
+	}
+	(*i)++;
+	if (n > 9)
+		ft_putnbr(n / 10, i);
+	ft_putchar(n % 10 + '0');
+}

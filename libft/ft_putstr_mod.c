@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr_mod.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 16:24:19 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/11 10:21:59 by cdutel-l         ###   ########.fr       */
+/*   Created: 2021/12/09 13:37:14 by cdutel-l          #+#    #+#             */
+/*   Updated: 2022/05/11 11:17:41 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "../libft/libft.h"
+int	ft_putstr_mod(char *c)
+{
+	int	i;
+	int	j;
 
-#endif
+	i = 0;
+	j = 0;
+	while (c[i] != '\0')
+		i++;
+	i--;
+	while (i >= 0)
+	{
+		i -= ft_putchar(c[i]);
+		j++;
+	}
+	return (j);
+}

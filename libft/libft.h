@@ -6,17 +6,23 @@
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 17:58:47 by cdutel-l          #+#    #+#             */
-/*   Updated: 2021/11/26 17:57:03 by cdutel-l         ###   ########.fr       */
+/*   Updated: 2022/05/11 11:16:34 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
+
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -68,4 +74,23 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+char	*get_next_line(int fd);
+int		ft_strchr_gnl(char *s, int c);
+char	*ft_strjoingnl(char *s1, char *s2);
+char	*ft_fullstr(char *str, int fd);
+char	*ft_select(char *str);
+char	*ft_static(char *str);
+int		ft_strlen_gnl(char *str);
+
+int		ft_putchar(char c);
+int		ft_printf(const char *fmt, ...);
+int		ft_putstr_mod(char *c);
+int		ft_putstr_mod2(char *c);
+int		ft_ifft(const char *fmt, int n, va_list args);
+int		ft_nbh(unsigned int n);
+int		ft_nbhmaj(unsigned int n);
+int		ft_pvoidh(unsigned long long n);
+int		ft_string(char *s);
+void	ft_unsignedputnbr(unsigned int n, int *i);
+void	ft_putnbr(int n, int *i);
 #endif

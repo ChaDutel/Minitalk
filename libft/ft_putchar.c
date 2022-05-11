@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 16:24:19 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/11 10:21:59 by cdutel-l         ###   ########.fr       */
+/*   Created: 2021/12/15 13:10:09 by cdutel-l          #+#    #+#             */
+/*   Updated: 2022/05/11 11:17:18 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <signal.h>
-# include "../libft/libft.h"
-
-#endif
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
