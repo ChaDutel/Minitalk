@@ -28,7 +28,7 @@ INCS = $(addprefix $(DIR_INCS)/,$(LST_INCS))
 
 AR_LIBFT = $(DIR_LIBFT)/libft.a
 
-all : $(NAME_CLIENT) $(NAME_SERVER)
+all : make_libft $(NAME_CLIENT) $(NAME_SERVER)
 
 $(NAME_CLIENT) : $(AR_LIBFT) $(OBJS_CLIENT)
 				$(CC) $(FLAGS) $^ -o $@
@@ -45,11 +45,16 @@ $(AR_LIBFT) :
 $(DIR_OBJS) :
 			mkdir -p $@
 
+make_libft :
+		$(MAKE) -C $(DIR_LIBFT)
+
 clean :
 		rm -rf $(DIR_OBJS)
+		$(MAKE) clean -C $(DIR_LIBFT)
 
 fclean : clean
 		rm -rf $(NAME_CLIENT) $(NAME_SERVER)
+		$(MAKE) fclean -C $(DIR_LIBFT)
 
 re : fclean all
 

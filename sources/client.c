@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 17:36:23 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/12 14:03:29 by cdutel-l         ###   ########.fr       */
+/*   Updated: 2022/05/12 18:43:35 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,13 @@ void	ft_sendsig(int pid, char *str)
 		}
 		i++;
 	}
-	return ;
+	i = 0;
+	while (i < 8)
+	{
+		kill(pid, SIGUSR1);
+		usleep(70);
+		i++;
+	}
 }
 
 int	main(int argc, char *argv[])
@@ -42,32 +48,3 @@ int	main(int argc, char *argv[])
 	ft_sendsig(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }
-
-		/* if (str[0] == '0')
-			kill(pid, SIGUSR1);
-		if (str[0] == '1')
-			kill(pid, SIGUSR2); */
-
-
-/* void	ft_sendsig(int pid, char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		while (j < 8)
-		{
-			if ((str[i] >> j & 1) == 0)
-				kill(pid, SIGUSR1);
-			if ((str[i] >> j & 1) == 1)
-				kill(pid, SIGUSR2);
-			usleep(40);
-			j++;
-		}
-		i++;
-	}
-	return ;
-} */
