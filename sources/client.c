@@ -6,7 +6,7 @@
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 17:36:23 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/12 18:43:35 by cdutel-l         ###   ########.fr       */
+/*   Updated: 2022/05/12 19:00:26 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	main(int argc, char *argv[])
 {
 	if (argc != 3)
 		return (0);
+	if (ft_atoi(argv[1]) == 0)
+	{
+		ft_printf("error\n");
+		return (0);
+	}
 	ft_sendsig(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }

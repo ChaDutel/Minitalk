@@ -6,27 +6,11 @@
 /*   By: cdutel-l <cdutel-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 17:36:33 by cdutel-l          #+#    #+#             */
-/*   Updated: 2022/05/12 18:43:45 by cdutel-l         ###   ########.fr       */
+/*   Updated: 2022/05/12 18:55:21 by cdutel-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
-
-/* char	*if_no_s_one(char *s2)
-{
-	int		lenght;
-	char	*str;
-
-	lenght = ft_strlen((char *)s2);
-	str = malloc(sizeof(char) * (lenght + 1));
-	if (!str)
-		return (NULL);
-	str[0] = s2[0];
-	return (str);
-	
-	
-	return (if_no_s_one(s2));
-} */
 
 char	*ft_strjoinmini(char *s1, char c)
 {
@@ -43,7 +27,7 @@ char	*ft_strjoinmini(char *s1, char c)
 		str[1] = '\0';
 		return (str);
 	}
-	str = malloc(sizeof(char) * (ft_strlen((char *)s1 + 2)));
+	str = malloc(sizeof(char) * (ft_strlen(s1) + 2));
 	if (!str)
 		return (NULL);
 	while (s1[i])
